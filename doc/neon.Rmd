@@ -1,0 +1,79 @@
+---
+title: ""
+author: "Fusion Sport"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{neon}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+<style>
+.column-left{
+float: left;
+width: 10%;
+text-align: left;
+}
+.column-right{
+float: left;
+width: 80%;
+text-align: left;
+}
+</style>
+
+<div class = "row">
+<div class = "column-left">
+<br>
+```{r logo, echo = FALSE, out.extra = 'style="border:0;"'}
+knitr::include_graphics("fusion_logo.png")
+```
+</div>
+<div class = "column-right">
+## neon
+</div>
+</div>
+<br><br><br><br>
+
+The neon package serves as an R wrapper for the Smartabase API. At present, the package consists of two primary functions: `pull_smartabase()` for downloading Smartabase data into R and `push_smartabase()` for uploading data from R up to Smartabase.
+
+### Installation and getting started
+To install `neon` - please read the "Installing neon" vignette (`vignette(installing-neon, package = "neon")`) or contact your Smartabase builder.
+
+### Usage
+The two main functions of `neon` allow you to push and pull data from your Smartabase site via the Smartabase API. Read the "Pulling Data: A Detailed Guide" vignette (`vignette(pulling-data, package = "neon")`) and the "Pushing Data: A Detailed Guide" vignette (`vignette(pushing-data, package = "neon")`) for more details.
+
+#### pull_smartabase()
+The pull smartabase function allows you to pull data from a specific Smartabase  event form. 
+
+```{r eval = FALSE}
+data <- pull_smartabase(
+  url        = "example.smartabase.com/neon",
+  form       = "Daily Wellness",
+  username   = "john.smith",
+  start_date = "01/01/2019",
+  end_date   = "01/02/2019"
+)
+```
+
+#### push_smartabase()
+The push smartabase function allows you to send data back to a Smartabase form. 
+
+```{r eval = FALSE}
+push_smartabase(
+  df       = data,
+  url      = "example.smartabase.com/neon",
+  form     = "Daily Wellness",
+  username = "john.smith"
+)
+```
+
+### Help
+Contact either Zac Pross (zac.pross@fusionsport.com) or James Day (james.day@fusionsport.com) for questions about `neon`. Alternatively, contact your Smartabase Builder directly. 
